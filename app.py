@@ -30,5 +30,21 @@ def home():
     results = cursor.fetchall()
     return str(results)
 
+def query_db(query, args=(), one=False):
+    cursor = get_db().execute(query, args)
+    rv = cursor.fetchall()
+    cursor.close()
+    return (rv[0] if rv else None) if one else rv
+
+@app.route("/book/<int:id>")
+def book(id):
+    sql = """
+            SELECT * FROM Books 
+            JOIN Authors ON Books.author_ID = Authors.author_ID
+            WHERE Books.book_ID = ?;
+            """
+    result = query_db(sql, (id,), True)
+    return str(result) 
+
 if __name__ == "__main__": 
     app.run(debug=True)

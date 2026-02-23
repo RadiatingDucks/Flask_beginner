@@ -1,0 +1,9 @@
+-- database: ./database.db
+
+SELECT * FROM Books
+ORDER BY `author_ID` ASC;
+
+--testing code
+SELECT * FROM Books 
+JOIN Authors ON Books.author_ID = Authors.author_ID
+WHERE Books.book_ID = 2;
