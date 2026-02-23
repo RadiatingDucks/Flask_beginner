@@ -1,4 +1,4 @@
-from flask import Flask, g
+from flask import Flask, g, render_template
 
 import sqlite3
 
@@ -28,7 +28,7 @@ def home():
     sql = "SELECT * FROM books;"
     cursor.execute(sql)
     results = cursor.fetchall()
-    return str(results)
+    return render_template("home.html", results=results)
 
 def query_db(query, args=(), one=False):
     cursor = get_db().execute(query, args)
