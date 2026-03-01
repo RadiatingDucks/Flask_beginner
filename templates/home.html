@@ -3,11 +3,16 @@
 <!--homepage goes here-->
 
 <!--a 4 column grid-->
-<div class = "four column">
+<div class = "four-column">
     {%  for book in results  %}
-    <div class="w3-card-4">
-        <!--the name then the image-->
-    </div>
-
+    <a href="{{url_for('book', id=book[0])}}">
+        <div class="w3-card-4 contain-text">
+            <!--the name then the image-->
+            <h2>{{book[1]}}</h2>
+            <h3>{{book[2]}}</h3>
+            <img src="{{ book[4] }}" alt="picture of {{ book[1] }}">
+        </div>
+    </a>
+    {% endfor %}
 </div>
 {% endblock %}

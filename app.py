@@ -44,7 +44,7 @@ def book(id):
             WHERE Books.book_ID = ?;
             """
     result = query_db(sql, (id,), True)
-    return str(result) 
+    return render_template("book.html", book=result)
 
 if __name__ == "__main__": 
     app.run(debug=True)

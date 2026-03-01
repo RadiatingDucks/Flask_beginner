@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="two-column">
+    <!--image on left-->
+    <img src="{{book[4]}}" alt="{{book[1]}}">
+    <!--info panel on right-->
+    <div class="info">
+        <h2>{{book[1]}}</h2>
+        <h3>Genre: {{book[2]}}</h3>
+    </div>
+</div>
+{% endblock %}
